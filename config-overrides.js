@@ -4,6 +4,7 @@ module.exports = override(
   addWebpackAlias({
     ["myact"]: path.resolve(__dirname, "src/myact"),
     ["@cp"]: path.resolve(__dirname, "src/components"),
-    ["@pg"]: path.resolve(__dirname, "src/pages")
+    ["@pg"]: path.resolve(__dirname, "src/pages"),
+    ["@api"]: path.resolve(__dirname, "src/httpApi")
   })
 )

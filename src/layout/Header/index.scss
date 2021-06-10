@@ -1,0 +1,23 @@
+.Header {
+  position: relative;
+  height: 156px;
+  width: 100%;
+}
+
+.Banner,
+.Navigation,
+.Prospects {
+  position: absolute;
+}
+
+.Banner {
+  z-index: 1;
+}
+
+.Prospects {
+  z-index: 10;
+}
+
+.Navigation {
+  z-index: 100;
+}
