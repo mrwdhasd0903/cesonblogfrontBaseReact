@@ -1,7 +1,7 @@
 // import { useState } from "myact";
 import { Link } from "react-router-dom";
 import "./index.scss";
-import { useState, useEffect, Svg } from "myact";
+import { useState, useEffect, useRef, Svg } from "myact";
 export default function Index(props) {
   const navs = [
     { name: "首页", link: "/home" },
@@ -13,6 +13,8 @@ export default function Index(props) {
     { name: "友情链接", link: "/link" },
   ];
   const [hoverStyle, setHoverStyle] = useState({ left: "0px", width: "0px" });
+  const [focus, seFocus] = useState(false);
+  const input = useRef(null);
   const linkFix = "nav-";
 
   useEffect(() => {
@@ -30,13 +32,11 @@ export default function Index(props) {
       width: offsetWidth + "px",
     });
   }
-
   /**
    * hover归位
    */
   function linkRecover() {
     const { pathname } = props.location;
-    console.log(pathname);
     const currLinkDoms = document.getElementsByClassName(linkFix + pathname);
     if (currLinkDoms.length) {
       const currLinkDom = currLinkDoms[0];
@@ -46,6 +46,41 @@ export default function Index(props) {
         width: offsetWidth + "px",
       });
     }
+  }
+  /**
+   * 点击搜索栏
+   */
+  function inputFocus(e) {
+    input.current.focus();
+    seFocus(true);
+  }
+  /**
+   *输入框取消输入
+   * @param {*} e
+   */
+  function inputBlur() {
+    if (input.current.value) return;
+    seFocus(false);
+  }
+  /**
+   * 阻止冒泡
+   */
+  function stopPropagation(e) {
+    e.stopPropagation();
+  }
+  /**
+   *
+   * @param {*} e
+   */
+  function enterKeyUp(e) {
+    if (e.key === "Enter") search(e);
+  }
+  /**
+   * 开始搜索
+   */
+  function search(e) {
+    e.stopPropagation();
+    alert(input.current.value);
   }
   return (
     <div className="Navigation" onMouseLeave={linkRecover}>
@@ -62,10 +97,26 @@ export default function Index(props) {
         );
       })}
       <div className="hover" style={hoverStyle} />
-      <div className="search" onMouseEnter={linkEnter}>
-        <input type="text" />
-        <div className="svg">
+      <div onClick={inputFocus} className="search" onMouseEnter={linkEnter}>
+        <input
+          onKeyUp={enterKeyUp}
+          onClick={stopPropagation}
+          onBlur={inputBlur}
+          className={focus ? "focus" : ""}
+          type="text"
+          ref={input}
+        />
+        <div onClick={search} className="svg">
           <Svg name="search" />
+        </div>
+      </div>
+      <div className="github" onMouseEnter={linkEnter}>
+        <button>
+          <Svg name="star" />
+          <span>Star</span>
+        </button>
+        <div className="logo">
+          <Svg name="github" />
         </div>
       </div>
     </div>

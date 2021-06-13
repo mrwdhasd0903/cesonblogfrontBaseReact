@@ -1,0 +1,71 @@
+.Prospects {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .IS {
+    height: 0px;
+    animation: IS 1s .5s forwards;
+  }
+
+
+  @keyframes IS {
+    0% {
+      height: 0px;
+    }
+
+    70% {
+      height: 210px;
+    }
+
+    80% {
+      height: 170px;
+    }
+
+    90% {
+      height: 200px;
+    }
+
+    95% {
+      height: 185px;
+    }
+
+    100% {
+      height: 190px;
+    }
+  }
+
+  .HS {
+    height: 0px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    animation: HS 1s forwards;
+  }
+
+  @keyframes HS {
+    0% {
+      height: 0px;
+    }
+
+    70% {
+      height: 80px;
+    }
+
+    80% {
+      height: 50px;
+    }
+
+    90% {
+      height: 65px;
+    }
+
+
+    100% {
+      height: 60px;
+    }
+  }
+}
