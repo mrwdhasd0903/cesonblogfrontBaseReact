@@ -3,12 +3,11 @@ import Navigation from "@cp/Navigation";
 import Prospects from "@cp/Prospects";
 import "./index.scss";
 
-export default function index() {
-  
+export default function Index(props) {
   return (
     <div className="Header">
       <Banner />
-      <Navigation />
+      <Navigation {...props} />
       <Prospects />
     </div>
   );

@@ -1,8 +1,8 @@
 
-export default function index() {
+export default function Index() {
   return (
     <div className="Prospects">
-      前景
+      {/* 前景 */}
     </div>
   )
 }

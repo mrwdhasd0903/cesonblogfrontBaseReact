@@ -10,10 +10,11 @@ import About from "@pg/about";
 import Traffic from "@pg/traffic";
 import Link from "@pg/link";
 
-export default function index() {
+export default function Index() {
   return (
     <BrowserRouter>
-      <Header />
+      {/* <Header /> */}
+      <Route path="*" component={Header} />
       <Switch>
         <Redirect path="/" to="/home" exact />
         <Route path="/home" component={Home} />

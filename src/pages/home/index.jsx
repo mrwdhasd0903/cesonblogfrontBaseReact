@@ -1,6 +1,6 @@
 import React from 'myact'
 
-export default function index() {
+export default function Index(props) {
   return (
     <div>
       home
