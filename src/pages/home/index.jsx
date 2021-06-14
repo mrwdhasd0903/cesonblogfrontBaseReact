@@ -1,9 +1,5 @@
-import React from 'myact'
-
+import React from "myact";
+import "./index.scss";
 export default function Index(props) {
-  return (
-    <div>
-      home
-    </div>
-  )
+  return <div className="Home">home</div>;
 }

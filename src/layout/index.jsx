@@ -13,9 +13,8 @@ import Link from "@pg/link";
 export default function Index() {
   return (
     <BrowserRouter>
-      {/* <Header /> */}
       <Route path="*" component={Header} />
-      <Switch>
+      <Switch className="aaa">
         <Redirect path="/" to="/home" exact />
         <Route path="/home" component={Home} />
         <Route path="/details" component={Details} />

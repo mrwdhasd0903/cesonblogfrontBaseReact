@@ -3,7 +3,6 @@ import { useRef } from "myact";
 export default function Index() {
   const ISRef = useRef(null);
   function move(e) {
-    console.log(e);
     ISRef.current.style.transition = "";
     const poor = e.pageX - window.innerWidth / 2;
     let res;

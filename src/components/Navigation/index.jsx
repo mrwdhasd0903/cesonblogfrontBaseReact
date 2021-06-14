@@ -14,6 +14,7 @@ export default function Index(props) {
   ];
   const [hoverStyle, setHoverStyle] = useState({ left: "0px", width: "0px" });
   const [focus, seFocus] = useState(false);
+  const [fixed, seFixed] = useState(false);
   const input = useRef(null);
   const linkFix = "nav-";
 
@@ -21,6 +22,13 @@ export default function Index(props) {
     linkRecover();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  /**
+   * 监听滚动
+   * @param {*}} e
+   */
+  window.addEventListener("scroll", () => {
+    seFixed(window.scrollY > 180);
+  });
   /**
    * hover 移动
    * @param {*} e
@@ -80,10 +88,18 @@ export default function Index(props) {
    */
   function search(e) {
     e.stopPropagation();
-    alert(input.current.value);
+    if (input.current.value) {
+      alert(input.current.value);
+    } else {
+      input.current.focus();
+      seFocus(true);
+    }
   }
   return (
-    <div className="Navigation" onMouseLeave={linkRecover}>
+    <div
+      className={"Navigation " + (fixed ? "fixed" : "")}
+      onMouseLeave={linkRecover}
+    >
       {navs.map((item) => {
         return (
           <Link
@@ -106,8 +122,8 @@ export default function Index(props) {
           type="text"
           ref={input}
         />
-        <div onClick={search} className="svg">
-          <Svg name="search" />
+        <div onClick={search} className={"svg" + (focus ? " svg-focus" : "")}>
+          <div />
         </div>
       </div>
       <div className="github" onMouseEnter={linkEnter}>
