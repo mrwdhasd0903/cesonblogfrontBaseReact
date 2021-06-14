@@ -1,0 +1,205 @@
+.ArticleCover {
+  position: relative;
+  display: flex;
+  margin-bottom: 20px;
+  box-shadow: -2px 2px 5px rgba(54, 54, 54, .09);
+  cursor: pointer;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform .2s ease;
+  background-color: #FFF;
+
+  &:hover {
+    transform: translateY(-4px) scale(1.07);
+    box-shadow: 0px 4px 10px rgba(54, 54, 54, .18);
+
+    .cover {
+      width: 100%;
+      left: 0px;
+    }
+  }
+
+  .content {
+    width: 470px;
+    overflow: hidden;
+    position: relative;
+    z-index: 20;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, .8);
+
+    & .flag {
+      font-size: 12px;
+      width: 73px;
+      height: 20px;
+      background-color: orange;
+      color: #FFF;
+      position: absolute;
+      left: -20px;
+      top: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: rotate(-45deg);
+    }
+
+    & .type {
+      margin-top: 20px;
+      color: #578ed1;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    & .title {
+      font-weight: 700;
+      font-size: 18px;
+      color: #444;
+    }
+
+    & .description {
+      color: #999;
+      font-size: 14px;
+      text-align: justify;
+      margin-top: 20px;
+    }
+
+    & .tags {
+      margin-top: 20px;
+      display: flex;
+
+      &>div {
+        font-size: 1px;
+        margin-right: 20px;
+        border: 1px solid #000;
+        color: #FFF;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 5px;
+        padding-bottom: 2px;
+        position: relative;
+        transition: box-shadow .2s ease;
+
+        & span {
+          position: relative;
+          z-index: 10;
+
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: -16px;
+            top: -1px;
+            width: 0;
+            height: 0;
+            border-width: 0px 0px 10px 10px;
+            border-style: none solid solid;
+            border-color: inherit;
+            transform: rotate(-90deg);
+          }
+
+          &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: -16px;
+            top: 9px;
+            width: 0;
+            height: 0;
+            border-width: 0px 0px 10px 10px;
+            border-style: none solid solid;
+            border-color: inherit;
+          }
+        }
+
+        // &::before {
+        //   content: "";
+        // display: block;
+        // position: absolute;
+        // left: -14px;
+        // top: calc(50% - 2px);
+        // width: 14px;
+        // height: 14px;
+        // background-color: #FFF;
+        // transform: rotate(45deg) translateY(-50%);
+        // }
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          right: -3px;
+          top: calc(50% - 2px);
+          width: 14px;
+          height: 14px;
+          background-color: inherit;
+          transform: rotate(45deg) translateY(-50%);
+        }
+
+        &:hover {
+          box-shadow: -2px 1px 4px rgba(54, 54, 54, .2);
+        }
+      }
+    }
+
+    & .information {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      fill: #888888;
+      color: #888888;
+
+      &>div {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+
+        &>svg {
+          width: 18px;
+          height: 18px;
+          margin-right: 4px;
+        }
+
+        & .svg-details {
+          width: 23px;
+          height: 23px;
+        }
+
+        & .svg-date {
+          width: 14px;
+          height: 14px;
+        }
+      }
+    }
+  }
+
+  .cover {
+    position: absolute;
+    height: 100%;
+    width: 230px;
+    left: 470px;
+    z-index: 10;
+    background-size: cover;
+    background-position: center;
+    transition: all .3s ease-in;
+  }
+
+
+  &.reverse {
+    justify-content: flex-end;
+
+    .cover {
+      left: 0px;
+    }
+
+    .content {
+      & .flag {
+        left: initial;
+        top: 4px;
+        right: -20px;
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
