@@ -11,9 +11,9 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgb(87, 142, 209);
     animation: down .3s ease-in-out;
-
+    background-color: #7952b3;
+    box-shadow: 0 1.5px 5px rgba(0,0,0,0.1);
     & .item {
       text-shadow: 0 1px 1px rgba(87, 142, 209, .3);
     }
@@ -22,18 +22,18 @@
       & .svg {
         div {
           &::before {
-            border-color: rgb(87, 142, 209);
+            border-color: #7952b3;
           }
 
           &::after {
-            background-color: rgb(87, 142, 209);
+            background-color: #7952b3;
           }
         }
 
         &.svg-focus {
           div {
             &::after {
-              background-color: rgb(87, 142, 209);
+              background-color: #7952b3;
             }
           }
         }

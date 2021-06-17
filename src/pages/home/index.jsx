@@ -2,6 +2,7 @@ import React from "myact";
 import "./index.scss";
 import { useState } from "myact";
 import ArticleCover from "@cp/ArticleCover";
+import Profile from "@cp/Profile";
 export default function Index(props) {
   const [articleList] = useState([
     {
@@ -205,7 +206,9 @@ export default function Index(props) {
       </div>
 
       {/* 右侧 */}
-      <div className="right"></div>
+      <div className="right">
+        <Profile />
+      </div>
     </div>
   );
 }

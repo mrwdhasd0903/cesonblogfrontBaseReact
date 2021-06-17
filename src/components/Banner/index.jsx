@@ -9,7 +9,7 @@ export default function Index() {
     <div
       className="Banner"
       style={{
-        background: `url(${bg})`,
+        backgroundImage: `url(${bg})`,
       }}
     >
     </div>
