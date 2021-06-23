@@ -20,15 +20,14 @@ export default function Index(props) {
 
   useEffect(() => {
     linkRecover();
+    window.addEventListener("scroll", seFixedBind);
+    return () => {
+      window.removeEventListener("scroll", seFixedBind);
+    };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  /**
-   * 监听滚动
-   * @param {*}} e
-   */
-  window.addEventListener("scroll", () => {
+  function seFixedBind() {
     seFixed(window.scrollY > 180);
-  });
+  }
   /**
    * hover 移动
    * @param {*} e

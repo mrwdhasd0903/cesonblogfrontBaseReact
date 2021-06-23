@@ -1,0 +1,87 @@
+// 从左侧归位
+@keyframes left_to_right {
+  0% {
+    transform: translateX(-200px) scale(.7);
+    opacity: .2;
+  }
+
+  100% {
+    transform: translateX(0px) scale(1);
+    opacity: 1;
+  }
+}
+
+// 从右侧归位
+@keyframes right_to_left {
+  0% {
+    transform: translateX(200px) scale(.7);
+    opacity: .2;
+  }
+
+  100% {
+    transform: translateX(0px) scale(1);
+    opacity: 1;
+  }
+}
+
+// 从顶部归位
+@keyframes down {
+  0% {
+    top: -52px;
+  }
+
+  100% {
+    top: 0px;
+  }
+}
+
+// 个性签名 - 弹性
+@keyframes IS {
+  0% {
+    height: 0px;
+  }
+
+  70% {
+    height: 210px;
+  }
+
+  80% {
+    height: 170px;
+  }
+
+  90% {
+    height: 200px;
+  }
+
+  95% {
+    height: 185px;
+  }
+
+  100% {
+    height: 190px;
+  }
+}
+
+// 签名 - 弹性
+@keyframes HS {
+  0% {
+    height: 0px;
+  }
+
+  70% {
+    height: 80px;
+  }
+
+  80% {
+    height: 50px;
+  }
+
+  90% {
+    height: 65px;
+  }
+
+
+  100% {
+    height: 60px;
+  }
+}

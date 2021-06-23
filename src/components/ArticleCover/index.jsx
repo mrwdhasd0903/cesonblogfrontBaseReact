@@ -1,14 +1,38 @@
-import React, { useMemo, Svg } from "myact";
+import React, { useMemo, Svg, createRef, useEffect, useState } from "myact";
 import "./index.scss";
 import { changeDateFormat, formatDistance } from "@u/changeDateFormat";
+const OFFSET = 180;
 
 export default function Index(props) {
   const isrReverse = useMemo(() => props.title.length % 2 === 0, [props]);
-
+  const self = createRef();
+  const [pass, setPass] = useState(false);
+  function adjust() {
+    if (!self.current) return;
+    const doc = document.documentElement;
+    if (doc.scrollTop + doc.clientHeight >= self.current.offsetTop + OFFSET) {
+      setPass(true);
+      document.removeEventListener("scroll", adjust);
+    }
+  }
+  useEffect(() => {
+    document.addEventListener("scroll", adjust);
+    adjust();
+    return () => {
+      document.removeEventListener("scroll", adjust);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
-    <div className={"ArticleCover" + (isrReverse ? " reverse" : "")}>
+    <div
+      ref={self}
+      className={
+        "ArticleCover" +
+        (isrReverse ? " reverse" : "") +
+        (pass ? " passanm" : "")
+      }
+    >
       <div className="content">
-        {/* <div className="flag">{props.flag}</div> */}
         <div className="title">{props.title}</div>
         <div className="description">{props.description}</div>
         <div className="type">{props.type.name}</div>
