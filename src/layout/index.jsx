@@ -1,4 +1,5 @@
 import Header from "./Header";
+import Body from "./Body";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import Details from "@pg/details";
@@ -14,6 +15,7 @@ export default function Index() {
   return (
     <BrowserRouter>
       <Route path="*" component={Header} />
+      <Route path="*" component={Body} />
       <Switch className="aaa">
         <Redirect path="/" to="/home" exact />
         <Route path="/home" component={Home} />

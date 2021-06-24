@@ -85,3 +85,32 @@
     height: 60px;
   }
 }
+
+// 果冻出现
+@keyframes jellyShow {
+  0% {
+    opacity: 0;
+    transform: scale(.2);
+  }
+
+  60% {
+    transform: scale(1.2);
+  }
+
+  70% {
+    transform: scale(0.9);
+  }
+
+  80% {
+    transform: scale(1.1);
+  }
+
+  90% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

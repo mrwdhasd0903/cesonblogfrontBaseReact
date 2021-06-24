@@ -1,0 +1,55 @@
+.Tools {
+  .go_top {
+    display: none;
+    width: 40px;
+    height: 40px;
+    background-color: #7952b3;
+    position: fixed;
+    bottom: 100px;
+    border-radius: 4px;
+    right: 40px;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(54, 54, 54, 0.18);
+    user-select: none;
+
+    & .text {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 40px;
+      left: 0;
+      font-size: 14px;
+      line-height: 40px;
+      text-align: center;
+      color: #FFF;
+      font-weight: 700;
+      transition: top .2s ease;
+    }
+
+    &:hover {
+      svg {
+        top: -40px;
+      }
+
+      & .text {
+        top: 0px;
+      }
+    }
+  }
+
+  .show {
+    display: block;
+    animation: jellyShow .5s ease forwards;
+  }
+
+  svg {
+    position: absolute;
+    fill: #fff;
+    width: 20px;
+    height: 40px;
+    top: 0;
+    left: 10px;
+    transition: top .2s ease;
+  }
+}

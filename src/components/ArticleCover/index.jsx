@@ -1,7 +1,7 @@
 import React, { useMemo, Svg, createRef, useEffect, useState } from "myact";
 import "./index.scss";
 import { changeDateFormat, formatDistance } from "@u/changeDateFormat";
-const OFFSET = 180;
+const OFFSET = 80;
 
 export default function Index(props) {
   const isrReverse = useMemo(() => props.title.length % 2 === 0, [props]);
