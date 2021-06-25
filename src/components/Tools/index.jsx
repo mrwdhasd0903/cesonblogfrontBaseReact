@@ -18,22 +18,21 @@ export default function Index() {
     // 总高度
     const H = _d.scrollTop;
     // 滚动总时间
-    const T = 2;
+    const T = 100;
     // 计算
     const a = (-6 * H) / Math.pow(T, 3);
     // 当前时间
     let currTime = 0;
-    function timing() {
+    let Interval = setInterval(() => {
       const v = a * currTime * (currTime - T);
-      setTimeout(() => {
-        currTime += 0.001;
-        _d.scrollTop -= v;
-        if (_d.scrollTop > 0) {
-          timing();
-        }
-      }, 1);
-    }
-    timing();
+      _d.scrollTop -= v;
+      console.log(v, currTime);
+
+      if (_d.scrollTop <= 0 || v < 0) {
+        clearInterval(Interval);
+      }
+      currTime += 1;
+    }, 1);
   }
 
   return (
