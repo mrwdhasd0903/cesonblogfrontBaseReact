@@ -26,8 +26,6 @@ export default function Index() {
     let Interval = setInterval(() => {
       const v = a * currTime * (currTime - T);
       _d.scrollTop -= v;
-      console.log(v, currTime);
-
       if (_d.scrollTop <= 0 || v < 0) {
         clearInterval(Interval);
       }

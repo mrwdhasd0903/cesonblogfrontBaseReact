@@ -95,14 +95,14 @@
         transition: box-shadow .2s ease;
 
         & span {
-          position: relative;
+          // position: relative;
           z-index: 10;
 
           &::before {
             content: "";
             display: block;
             position: absolute;
-            left: -16px;
+            left: -10px;
             top: -1px;
             width: 0;
             height: 0;
@@ -116,7 +116,7 @@
             content: "";
             display: block;
             position: absolute;
-            left: -16px;
+            left: -10px;
             top: 9px;
             width: 0;
             height: 0;
