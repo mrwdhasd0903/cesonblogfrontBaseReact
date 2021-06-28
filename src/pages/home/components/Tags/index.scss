@@ -1,0 +1,9 @@
+.Tags{
+  display: flex;
+  flex-wrap: wrap;
+  // justify-content: space-around;
+  &>div{
+    margin-right: 10px;
+    margin-bottom: 5px;
+  }
+}
