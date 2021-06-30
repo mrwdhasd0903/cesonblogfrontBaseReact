@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, Svg } from "myact";
 import data from "./data.js";
 import "./index.scss";
 export default function Index(props) {
+  // eslint-disable-next-line no-unused-vars
   const [tagList, setTagList] = useState(data);
   const [loading, setLoading] = useState(false);
   const WordCloudCanvas = useRef();
@@ -14,7 +15,7 @@ export default function Index(props) {
     ]),
     gridSize: 9, // 密集程度 数字越小越密集
     weightFactor: 20, // 字体大小=原始大小*weightFactor
-    maxFontSize: 30, //最大字号
+    maxFontSize: 20, //最大字号
     minFontSize: 10, //最小字号
     color: (word, weight, fontSize, distance, theta, item) => item[0],
     classes: (word, weight, fontSize, item) => "word_item word_" + item[1],
@@ -42,6 +43,7 @@ export default function Index(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   function loadWordCloud() {
+    if (loading) return;
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
@@ -58,9 +60,6 @@ export default function Index(props) {
   }
   return (
     <div className="Tags">
-      {/* {tagList.map((item, index) => (
-        <Tag {...item} key={item.id} />
-      ))} */}
       <div
         className="word_cloud"
         onMouseLeave={mouseLeave}
