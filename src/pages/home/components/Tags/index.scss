@@ -1,9 +1,69 @@
-.Tags{
-  display: flex;
-  flex-wrap: wrap;
+.Tags {
+  position: relative;
+
   // justify-content: space-around;
-  &>div{
-    margin-right: 10px;
-    margin-bottom: 5px;
+  .word_cloud {
+    width: 300px;
+    height: 600px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+
+    span {
+      transition: transform .2s ease;
+      transform-origin: transform text-shadow;
+
+      &:hover {
+        text-shadow: -1px 1px 3px rgba(0, 0, 0, .2);
+      }
+    }
+  }
+
+  .reload {
+    position: absolute;
+    right: 20px;
+    top: 270px;
+    width: 100px;
+    height: 50px;
+    padding: 20px;
+    cursor: pointer;
+    text-align: right;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+    box-sizing: content-box;
+
+    svg {
+      width: 30px;
+      height: 30px;
+      fill: #7952b3;
+      transition: all .6s ease-in-out;
+      padding: 10px;
+      border-radius: 100%;
+      box-sizing: content-box;
+      background-color: rgba(0, 0, 0, 0);
+    }
+  }
+
+  .loading {
+    svg {
+      transform: rotate(0deg) !important;
+      transition-duration: 1s;
+    }
+  }
+
+  &:hover {
+    .reload {
+      right: -100px;
+      opacity: 1;
+
+      svg {
+        transform: rotate(-720deg);
+
+        &:hover {
+          background-color: rgba(0, 0, 0, .1);
+        }
+      }
+    }
   }
 }
