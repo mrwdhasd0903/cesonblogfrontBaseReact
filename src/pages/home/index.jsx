@@ -4,6 +4,7 @@ import ArticleCover from "@cp/ArticleCover";
 import Profile from "@cp/Profile";
 import data from "./data";
 import Tags from "./components/Tags";
+import Types from "./components/Types";
 export default function Index(props) {
   const [articleList, setArticleList] = useState(data);
   function loadMore() {
@@ -25,6 +26,7 @@ export default function Index(props) {
       <div className="right">
         <Profile />
         <Tags />
+        <Types />
       </div>
     </div>
   );
