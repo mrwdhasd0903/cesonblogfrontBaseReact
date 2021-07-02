@@ -25,8 +25,8 @@ export default function Index(props) {
       {/* 右侧 */}
       <div className="right">
         <Profile />
-        <Tags />
         <Types />
+        <Tags />
       </div>
     </div>
   );

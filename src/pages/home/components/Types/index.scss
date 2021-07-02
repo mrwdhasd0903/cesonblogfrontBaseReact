@@ -1,0 +1,84 @@
+.Types {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  user-select: none;
+  margin-bottom: -10px;
+  position: sticky;
+  top: 62px;
+
+  .type {
+    cursor: pointer;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    animation: jellyShow .5s .3s ease forwards;
+
+    &:hover {
+      .name {
+        color: #58637a;
+      }
+
+      svg {
+        animation: jitter 1s ease-in-out;
+      }
+
+      .num {
+        background-color: #58637a;
+        border-color: #58637a;
+        color: #FFF;
+        animation: jellyShow .5s ease forwards;
+      }
+    }
+  }
+
+  .svg {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    // background-color: #7952b3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .name {
+    font-size: 15px;
+    color: #8590a6;
+    padding-bottom: 10px;
+    transition: color .2s ease;
+  }
+
+  .num {
+    position: absolute;
+    right: -7px;
+    top: 4px;
+    background-color: #FFF;
+    border: 1px solid #8590a6;
+    height: 17px;
+    padding: 0 6px;
+    border-radius: 10px;
+    color: #8590a6;
+    font-size: 12px;
+  }
+
+  Svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  & .type:nth-child(3n-2) {
+    align-items: flex-start;
+  }
+
+  & .type:nth-child(3n-1) {
+    align-items: center;
+
+  }
+
+  & .type:nth-child(3n) {
+    align-items: flex-end;
+
+  }
+}

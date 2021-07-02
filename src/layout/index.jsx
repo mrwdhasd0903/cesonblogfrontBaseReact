@@ -1,5 +1,6 @@
 import Header from "./Header";
 import Body from "./Body";
+import Footer from "./Footer";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import Details from "@pg/details";
@@ -27,6 +28,7 @@ export default function Index() {
         <Route path="/traffic" component={Traffic} />
         <Route path="/link" component={Link} />
       </Switch>
+      <Route path="*" component={Footer} />
     </BrowserRouter>
   );
 }
