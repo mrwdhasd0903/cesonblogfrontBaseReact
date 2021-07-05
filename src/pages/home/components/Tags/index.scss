@@ -1,10 +1,10 @@
 .Tags {
   margin-top: 20px;
-  // position: relative;
   z-index: 5;
   position: sticky;
   top: 252px;
-  // justify-content: space-around;
+  margin-bottom: 213px;
+
   .word_cloud {
     width: 300px;
     height: 600px;
@@ -12,6 +12,7 @@
     cursor: pointer;
     position: relative;
     z-index: 1;
+    background-color: #FFF;
 
     span {
       transition: transform .2s ease;
