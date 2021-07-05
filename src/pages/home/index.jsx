@@ -2,6 +2,7 @@ import "./index.scss";
 import { useState } from "myact";
 import ArticleCover from "@cp/ArticleCover";
 import Profile from "@cp/Profile";
+import More from "@cp/More";
 import data from "./data";
 import Tags from "./components/Tags";
 import Types from "./components/Types";
@@ -17,9 +18,7 @@ export default function Index(props) {
         {articleList.map((item, index) => (
           <ArticleCover {...item} key={item.id + "" + index} />
         ))}
-        <div onClick={loadMore} className="more">
-          查看更多
-        </div>
+        <More moreClick={loadMore}/>
       </div>
 
       {/* 右侧 */}
