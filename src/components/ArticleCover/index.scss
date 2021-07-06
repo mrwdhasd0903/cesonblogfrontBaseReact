@@ -40,26 +40,27 @@
     background-color: rgba(255, 255, 255, .8);
     border-radius: 4px;
 
-    & .flag {
-      font-size: 12px;
-      width: 73px;
-      height: 20px;
-      background-color: orange;
-      color: #FFF;
-      position: absolute;
-      left: -20px;
-      top: 4px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transform: rotate(-45deg);
-    }
-
     & .type {
       margin-top: 20px;
-      color: #578ed1;
       font-size: 14px;
       font-weight: 700;
+      display: flex;
+      align-items: center;
+      .typename{
+        color: #578ed1;
+        margin-right: 10px;
+      }
+      .flag{
+        color: rgb(165, 173, 246);
+      }
+      svg {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
+      span {
+        margin-right: 5px;
+      }
     }
 
     & .title {
@@ -145,19 +146,19 @@
         margin-right: 20px;
 
         &>svg {
-          width: 18px;
-          height: 18px;
+          width: 22px;
+          height: 22px;
           margin-right: 4px;
         }
 
         & .svg-details {
-          width: 23px;
-          height: 23px;
+          width: 22px;
+          height: 22px;
         }
 
         & .svg-date {
-          width: 14px;
-          height: 14px;
+          width: 20px;
+          height: 20px;
         }
       }
     }
@@ -181,15 +182,6 @@
 
     .cover {
       left: 0px;
-    }
-
-    .content {
-      & .flag {
-        left: initial;
-        top: 4px;
-        right: -20px;
-        transform: rotate(45deg);
-      }
     }
   }
 

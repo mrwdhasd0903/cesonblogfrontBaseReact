@@ -17,6 +17,7 @@ const data = [
     type: {
       id: 18,
       name: "踩坑记录",
+      icon:'pit',
       blogssize: 0,
     },
     tags: [
@@ -52,6 +53,7 @@ const data = [
     type: {
       id: 18,
       name: "踩坑记录",
+      icon:'pit',
       blogssize: 0,
     },
     tags: [
@@ -87,6 +89,7 @@ const data = [
     type: {
       id: 16,
       name: "环境搭建",
+      icon:'setup',
       blogssize: 0,
     },
     tags: [
@@ -133,6 +136,7 @@ const data = [
     type: {
       id: 18,
       name: "踩坑记录",
+      icon:'pit',
       blogssize: 0,
     },
     tags: [
@@ -167,6 +171,7 @@ const data = [
     type: {
       id: 18,
       name: "踩坑记录",
+      icon:'pit',
       blogssize: 0,
     },
     tags: [

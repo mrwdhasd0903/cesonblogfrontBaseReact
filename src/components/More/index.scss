@@ -1,11 +1,13 @@
-.More{
+.More {
   cursor: pointer;
   width: 100%;
-  height: 50px;
-  font-size: 20px;
-  font-weight: bold;
-  color:rgb(92, 82, 82);
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+
+  .svg-left,
+  .svg-right {
+    width: 50px;
+    height: 50px;
+  }
 }

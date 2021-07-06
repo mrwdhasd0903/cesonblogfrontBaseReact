@@ -2,7 +2,7 @@ function Index(props) {
   const { name, fill } = props;
 
   return (
-    <svg className={"svg-" + name}>
+    <svg {...props} className={"svg-" + name}>
       <use xlinkHref={"#" + name} fill={fill} />
     </svg>
   );

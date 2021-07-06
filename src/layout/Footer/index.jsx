@@ -43,13 +43,11 @@ export default function Index() {
               <Svg name="wechat" />
               <span>codemeow</span>
             </div>
-            <Link className="github">
+            <Link className="github" to="#">
               <Svg name="github" />
             </Link>
           </div>
-          <div className="box">
-            唯有时间对我们一视同仁
-          </div>
+          <div className="box">唯有时间对我们一视同仁</div>
         </div>
         <div className="copyright">
           粤ICP备20003149号 | Copyright © 2019 - 2022 - www.wdhhh.cn | By

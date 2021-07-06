@@ -9,7 +9,10 @@ import Types from "./components/Types";
 export default function Index(props) {
   const [articleList, setArticleList] = useState(data);
   function loadMore() {
-    setArticleList([...articleList, ...data]);
+    setTimeout(() => {
+    setArticleList([])
+    setArticleList([...data]);
+    }, 300);
   }
   return (
     <div className="Home">
@@ -18,7 +21,7 @@ export default function Index(props) {
         {articleList.map((item, index) => (
           <ArticleCover {...item} key={item.id + "" + index} />
         ))}
-        <More moreClick={loadMore}/>
+        <More nextClick={loadMore} lastClick={loadMore} />
       </div>
 
       {/* 右侧 */}

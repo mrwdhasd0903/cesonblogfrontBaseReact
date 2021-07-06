@@ -35,7 +35,12 @@ export default function Index(props) {
       <div className="content">
         <div className="title">{props.title}</div>
         <div className="description">{props.description}</div>
-        <div className="type">{props.type.name}</div>
+        <div className="type">
+          <Svg name={props.type.icon} />
+          <span className="typename">{props.type.name}</span>
+          <Svg name="flag" />
+          <span className="flag">{props.flag}</span>
+        </div>
         <div className="information">
           <div>
             <Svg name="details" />
