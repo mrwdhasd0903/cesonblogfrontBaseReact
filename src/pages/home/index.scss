@@ -3,14 +3,14 @@
   justify-content: center;
   margin-top: 20px;
 
-  & .left {
+  &>.left {
     width: 700px;
     margin-right: 20px;
     position: relative;
     z-index: 10;
   }
 
-  & .right {
+  &>.right {
     width: 300px;
     position: relative;
     z-index: 5;
