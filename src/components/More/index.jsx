@@ -1,9 +1,12 @@
 import { Svg, useState, useEffect, useRef } from "myact";
 import "./index.scss";
 export default function Index(props) {
-  const pages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const { pageData, pageChange } = props;
+  const mode = pageData.total % pageData.size;
+  const pageSize = (pageData.total - mode) / pageData.size + (mode ? 1 : 0);
+
   // 实时改变的x滑动距离
-  const [scrollX, setScrollX] = useState(0);
+  const [scrollX, setScrollX] = useState(pageData.curr * 40 - 120);
   // 按压后存储的x滑动距离
   const [currScrollX, setCurrScrollX] = useState(0);
   // 按压后存储的鼠标x坐标
@@ -12,6 +15,9 @@ export default function Index(props) {
   const [mouseState, setMouseState] = useState("UP");
 
   const pageScroll = useRef();
+  useEffect(() => {
+    setScrollX(pageData.curr * 40 - 120);
+  }, [pageData]);
   useEffect(() => {
     window.addEventListener("mouseup", onMouseUp);
     return () => {
@@ -22,9 +28,9 @@ export default function Index(props) {
     if (mouseState === "DOWN") {
       let diff = clientX - e.clientX;
       if (diff >= 0) {
-        diff = Math.pow(diff, 3 / 4);
+        diff = Math.pow(diff, 5 / 6);
       } else {
-        diff = -Math.pow(-diff, 3 / 4);
+        diff = -Math.pow(-diff, 5 / 6);
       }
       setScrollX(currScrollX + diff);
     }
@@ -49,33 +55,44 @@ export default function Index(props) {
     let setValue;
     value = -value;
 
-    const mode = value % 20;
+    const mode = value % 40;
     if (value >= 0) {
-      if (mode > 10) {
-        setValue = value - mode + 20;
+      if (mode > 20) {
+        setValue = value - mode + 40;
       } else {
         setValue = value - mode;
       }
     } else {
-      if (mode < -10) {
-        setValue = value - mode - 20;
+      if (mode < -20) {
+        setValue = value - mode - 40;
       } else {
         setValue = value - mode;
       }
     }
-    if (setValue < -20) {
-      setValue = -20;
-    } else if (setValue > 140) {
-      setValue = 140;
+    if (setValue < -120) {
+      setValue = -120;
+    } else if (setValue > (pageSize - 3) * 40) {
+      setValue = (pageSize - 3) * 40;
     }
-    setScrollX(setValue);
+    pageChange(setValue / 40 + 3);
+  }
+  function lastPage() {
+    if (pageData.curr === 1) return;
+    pageChange(pageData.curr - 1);
+  }
+  function nextPage() {
+    if (pageData.curr === pageSize) return;
+    pageChange(pageData.curr + 1);
+  }
+  function jumpPage(page) {
+    pageChange(page);
   }
 
   return (
     <div className="More" onMouseMove={onMouseMove}>
-      <div className="last">
-        <Svg onClick={props.lastClick} name="left" />
-        <Svg onClick={props.lastClick} name="left" />
+      <div className="last" onClick={lastPage}>
+        <Svg name="left" />
+        <Svg name="left" />
       </div>
 
       <div className="page" onMouseDown={onMouseDown}>
@@ -84,17 +101,21 @@ export default function Index(props) {
           ref={pageScroll}
           style={{ transform: `translateX(${-scrollX}px)` }}
         >
-          {pages.map((item, index) => (
-            <div className="num" key={index}>
-              {item}
+          {new Array(pageSize).fill(0).map((item, index) => (
+            <div
+              className={"num " + (pageData.curr === index + 1 ? "curr" : "")}
+              key={index}
+              onClick={jumpPage.bind(this, index + 1)}
+            >
+              {index + 1}
             </div>
           ))}
         </div>
       </div>
 
-      <div className="next">
-        <Svg onClick={props.nextClick} name="right" />
-        <Svg onClick={props.nextClick} name="right" />
+      <div className="next" onClick={nextPage}>
+        <Svg name="right" />
+        <Svg name="right" />
       </div>
     </div>
   );

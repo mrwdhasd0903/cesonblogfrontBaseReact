@@ -1,5 +1,5 @@
 import "./index.scss";
-import { useState } from "myact";
+import { useState, useEffect } from "myact";
 import ArticleCover from "@cp/ArticleCover";
 import Profile from "@cp/Profile";
 import More from "@cp/More";
@@ -8,10 +8,26 @@ import Tags from "./components/Tags";
 import Types from "./components/Types";
 export default function Index(props) {
   const [articleList, setArticleList] = useState(data);
+
+  const [pageData, setPageData] = useState({
+    total: 109,
+    size: 10,
+    curr: 1,
+  });
+
+  useEffect(() => {
+    console.log(pageData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageData.curr]);
+
+  function setCurr(curr) {
+    setPageData({ ...pageData, curr: curr });
+  }
+
   function loadMore() {
     setTimeout(() => {
-    setArticleList([])
-    setArticleList([...data]);
+      setArticleList([]);
+      setArticleList([...data]);
     }, 300);
   }
   return (
@@ -21,7 +37,7 @@ export default function Index(props) {
         {articleList.map((item, index) => (
           <ArticleCover {...item} key={item.id + "" + index} />
         ))}
-        <More nextClick={loadMore} lastClick={loadMore} />
+        <More pageData={pageData} pageChange={setCurr} />
       </div>
 
       {/* 右侧 */}
