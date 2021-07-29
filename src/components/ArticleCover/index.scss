@@ -6,6 +6,17 @@
   transition: transform .2s ease;
   background-color: #FFF;
 
+  // 宽模式
+  &.wide {
+    .content {
+      width: 790px;
+    }
+
+    .cover {
+      left: 790px
+    }
+  }
+
   &:hover {
     transform: translateY(-4px) scale(1.07);
     box-shadow: 0px 4px 10px rgba(54, 54, 54, .18);
@@ -46,18 +57,22 @@
       font-weight: 700;
       display: flex;
       align-items: center;
-      .typename{
+
+      .typename {
         color: #578ed1;
         margin-right: 10px;
       }
-      .flag{
+
+      .flag {
         color: rgb(165, 173, 246);
       }
+
       svg {
         width: 20px;
         height: 20px;
         margin-right: 5px;
       }
+
       span {
         margin-right: 5px;
       }

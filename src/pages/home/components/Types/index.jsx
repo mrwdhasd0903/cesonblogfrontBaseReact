@@ -4,7 +4,7 @@ import "./index.scss";
 export default function Index() {
   const [typeList, setTypeList] = useState(data);
   return (
-    <div className="Types">
+    <div className="HomeTypes">
       {typeList.map((item) => (
         <div className="type" key={item.id}>
           <div className="svg">

@@ -29,7 +29,8 @@ export default function Index(props) {
       className={
         "ArticleCover" +
         (isrReverse ? " reverse" : "") +
-        (pass ? " passanm" : "")
+        (pass ? " passanm" : "") +
+        (props.wide ? " wide" : "")
       }
     >
       <div className="content">

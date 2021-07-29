@@ -59,7 +59,7 @@ export default function Index(props) {
     }
   }
   return (
-    <div className="Tags">
+    <div className="HomeTags">
       <div
         className="word_cloud"
         onMouseLeave={mouseLeave}

@@ -16,7 +16,7 @@ export default function Index(props) {
   });
 
   useEffect(() => {
-    console.log(pageData);
+    loadMore()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageData.curr]);
 
